@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Blog
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Articles</h1>
+        {% for el in article %}
+            <div class="alert alert-warning">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.intro }}</p>
+                <a href="{% url 'full_article' el.id %}" class="btn btn-warning">Read</a>
+                <a href="{% url 'delete_article' el.id %}" class="btn btn-danger">Delete</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
